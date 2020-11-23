@@ -5,9 +5,14 @@ import { PhotoShape } from '../shaps/PhotoShape';
 import { PhotoInfoShape } from '../shaps/PhotoInfoShape';
 import './GalleryBar.scss';
 
-export const GalleryBar = (
-  { photos, currentPhoto, currentIndex, isOpen, toggle },
-) => {
+export const GalleryBar = ({
+  photos,
+  currentPhoto,
+  currentIndex,
+  isOpen,
+  toggle,
+  setCurrentModalPhotoId,
+}) => {
   const IMG_WIDTH = 89;
 
   return (
@@ -34,6 +39,8 @@ export const GalleryBar = (
                       (IMG_WIDTH * 3) + currentIndex * -IMG_WIDTH
                     }px)`,
                   }}
+                  onClick={() => setCurrentModalPhotoId(photo.id)}
+                  role="presentation"
                 />
               </li>
             ))
@@ -64,4 +71,5 @@ GalleryBar.propTypes = {
   currentIndex: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
   toggle: PropTypes.func.isRequired,
+  setCurrentModalPhotoId: PropTypes.func.isRequired,
 };

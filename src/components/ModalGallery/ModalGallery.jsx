@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
+import { PhotoShape } from '../shaps/PhotoShape';
 import { getPhotoInfo } from '../../api';
 import { GalleryBar } from '../GalleryBar/GalleryBar';
 import './ModalGallery.scss';
@@ -95,20 +96,14 @@ export const ModalGallery = (
         currentIndex={currentIndex}
         isOpen={isBottomBarOpen}
         toggle={setIsBottomBarOpen}
+        setCurrentModalPhotoId={setCurrentModalPhotoId}
       />
     </div>
   );
 };
 
 ModalGallery.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    size: PropTypes.shape({
-      width: PropTypes.string,
-      height: PropTypes.string,
-    }),
-    url: PropTypes.string,
-  })).isRequired,
+  photos: PropTypes.arrayOf(PropTypes.shape(PhotoShape)).isRequired,
   photoId: PropTypes.string.isRequired,
   closeModalGallery: PropTypes.func.isRequired,
   setCurrentModalPhotoId: PropTypes.func.isRequired,
