@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { PhotoShape } from '../shaps/PhotoShape';
 import { storePhotos } from '../../storage';
 import './MyPhoto.scss';
 
-export const MyPhoto = ({ photo, setMyPhotos, setPinedPhotos }) => {
+export const MyPhoto = ({ photo, setMyPhotos, openPhoto, setPinedPhotos }) => {
   const [isOnRemove, setIsOnRemove] = useState(false);
 
   const removePhoto = () => {
@@ -40,6 +41,8 @@ export const MyPhoto = ({ photo, setMyPhotos, setPinedPhotos }) => {
         src={photo.url}
         alt="something"
         className="MyPhoto__img"
+        onClick={() => openPhoto(photo.id)}
+        role="presentation"
       />
 
       <button
@@ -54,14 +57,8 @@ export const MyPhoto = ({ photo, setMyPhotos, setPinedPhotos }) => {
 };
 
 MyPhoto.propTypes = {
-  photo: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    size: PropTypes.shape({
-      width: PropTypes.string,
-      height: PropTypes.string,
-    }),
-    url: PropTypes.string.isRequired,
-  }).isRequired,
+  photo: PropTypes.shape(PhotoShape).isRequired,
   setMyPhotos: PropTypes.func.isRequired,
+  openPhoto: PropTypes.func.isRequired,
   setPinedPhotos: PropTypes.func.isRequired,
 };

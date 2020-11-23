@@ -25,8 +25,8 @@ export const Header = ({ pinedPhotosLength }) => (
       </ul>
     </nav>
 
-    <div className="Header__menu">
-      <span>Menu</span>
+    <div className="Header__company">
+      <span>TemplateMonster</span>
     </div>
   </header>
 );

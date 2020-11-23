@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
+import { PhotoShape } from '../shaps/PhotoShape';
+import { PhotoInfoShape } from '../shaps/PhotoInfoShape';
 import './GalleryBar.scss';
 
 export const GalleryBar = (
@@ -57,18 +59,8 @@ export const GalleryBar = (
 };
 
 GalleryBar.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-  })).isRequired,
-  currentPhoto: PropTypes.shape({
-    id: PropTypes.string,
-    author: PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    url: PropTypes.string,
-    download_url: PropTypes.string,
-  }).isRequired,
+  photos: PropTypes.arrayOf(PropTypes.shape(PhotoShape)).isRequired,
+  currentPhoto: PropTypes.shape(PhotoInfoShape).isRequired,
   currentIndex: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
   toggle: PropTypes.func.isRequired,

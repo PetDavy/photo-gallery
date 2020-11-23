@@ -19,19 +19,7 @@ export const getPhotosData = async(limit, currentPage) => {
   const respones = await fetch(`${BASE_URL}/v2/list?page=${currentPage}&limit=${limit}`);
   const photosData = await respones.json();
 
-  const photos = photosData.map((photoData) => {
-    const proportion = photoData.width / photoData.height;
-    const size = {
-      width: '400',
-      height: `${Math.round(4 / proportion)}00`,
-    };
-
-    return {
-      id: photoData.id,
-      size,
-      url: `${BASE_URL}/id/${photoData.id}/${size.width}/${size.height}`,
-    };
-  });
+  const photos = photosData.map(formatPhotoData);
 
   return photos;
 };

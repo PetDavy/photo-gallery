@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { PhotoShape } from '../shaps/PhotoShape';
 import { storePhotos } from '../../storage';
 import './Photo.scss';
 
@@ -53,14 +54,7 @@ export const Photo = ({ photo, pinPhoto, openPhoto, isPined }) => {
 };
 
 Photo.propTypes = {
-  photo: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    size: PropTypes.shape({
-      width: PropTypes.string,
-      height: PropTypes.string,
-    }),
-    url: PropTypes.string.isRequired,
-  }).isRequired,
+  photo: PropTypes.shape(PhotoShape).isRequired,
   pinPhoto: PropTypes.func.isRequired,
   openPhoto: PropTypes.func.isRequired,
   isPined: PropTypes.bool.isRequired,
