@@ -72,3 +72,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Проблеми
+
+Виникли трудносщі з налаштуванням коректної пагінації. API не дає можливість отримати загальну кількість всіх фотографій одразу.
+Через це важко/неможливо визначити кінцеву сторінку. Визначити можни лише динамічно.
