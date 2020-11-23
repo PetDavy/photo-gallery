@@ -1,24 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
-import { Switch, Link, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import { Gallery } from './components/Gallery';
+import { MyPhotos } from './components/MyPhotos';
+import { getStoredPhotos } from './storage';
+import { Header } from './components/Header';
 
-export const App = () => (
-  <div>
-    React starter pack
-    <div>
-      <nav className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/users">Users</Link>
-      </nav>
+export const App = () => {
+  const [pinedPhotos, setPinedPhotos] = useState(getStoredPhotos());
+
+  return (
+    <div className="App">
+      <Header pinedPhotosLength={pinedPhotos.length} />
+
+      <h1 className="App__title">
+        Lorem Picsum
+      </h1>
 
       <Switch>
-        <Route path="/users">
-          <div>Users page</div>
+        <Route exact path="/">
+          <Gallery
+            pinedPhotos={pinedPhotos}
+            pinPhoto={setPinedPhotos}
+          />
         </Route>
-        <Route path="/">
-          <div>Home page</div>
+
+        <Route path="/my-photos">
+          <MyPhotos
+            pinedPhotos={pinedPhotos}
+            setPinedPhotos={setPinedPhotos}
+          />
         </Route>
       </Switch>
+
+      <footer className="App__footer">
+        Copyright 2020 · All rights reserved
+      </footer>
     </div>
-  </div>
-);
+  );
+};

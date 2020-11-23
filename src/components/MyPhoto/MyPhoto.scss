@@ -1,0 +1,58 @@
+.MyPhoto {
+	display: inline-block;
+	position: relative;
+	min-width: 400px;
+
+	cursor: zoom-in;
+	transition: transform 0.4s 0.3s, opacity 0.4s 0.3s;
+
+	&:hover {
+		.MyPhoto__remove-btn {
+			display: block;
+		}
+	}
+
+	&__remove-btn {
+			position: absolute;
+			display: none;
+			padding: 6px 12px;
+			top: 20px;
+			right: 20px;
+
+			border: none;
+			font-size: 13px;
+			font-weight: 200;
+			text-transform: uppercase;
+			color: #fff;
+			background-color: #b30000;
+
+
+			cursor: pointer;
+			transition: transform 0.3s;
+
+			&:hover {
+				transform: scale(1.2);
+			}
+
+			&:active {
+				transform: scale(1.5);
+			}
+
+			&:focus {
+				outline: none;
+			}
+	}
+
+	&__img {
+		transition: filter 0.3s;
+
+		&:hover {
+			filter: brightness(50%);
+		}
+	}
+
+	&__on-remove {
+		opacity: 0;
+		transform: translateY(-80px) scale(0.6);
+	}
+}

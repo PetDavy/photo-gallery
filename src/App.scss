@@ -1,8 +1,66 @@
-.nav {
-  display: flex;
-  margin: 20px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  * {
-    margin-right: 10px;
+html {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+
+.App {
+  &__header {
+    
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+
+    text-align: center;
+    color: #333;
+    font-family: 'Dancing Script', cursive;
+    font-size: 65px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      width: 1px;
+      height: 35px;
+      background-color: #ccc;
+    }
+  }
+
+  &__footer {
+    position: relative;
+
+    padding: 20px 0 30px;
+    text-align: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      width: 1px;
+      height: 35px;
+      background-color: #ccc;
+    }
   }
 }

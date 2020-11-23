@@ -1,0 +1,49 @@
+.Photo {
+	display: inline-block;
+	position: relative;
+	min-width: 400px;
+
+	cursor: zoom-in;
+
+	&:hover {
+		.Photo__pin-btn {
+			display: block;
+		}
+	}
+
+	&__pin-btn {
+			position: absolute;
+			display: none;
+			top: 20px;
+			right: 20px;
+
+			border: none;
+			font-size: 25px;
+			color: #cc3300;
+			background-color: transparent;
+
+
+			cursor: pointer;
+			transition: transform 0.3s;
+
+			&:hover {
+				transform: scale(1.2);
+			}
+
+			&:active {
+				transform: scale(1.5);
+			}
+
+			&:focus {
+				outline: none;
+			}
+	}
+
+	&__img {
+		transition: filter 0.3s;
+
+		&:hover {
+			filter: brightness(50%);
+		}
+	}
+}
